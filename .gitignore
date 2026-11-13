@@ -1,0 +1,33 @@
+# Claude Code: skills, local settings and the skills lock file
+.claude/
+skills-lock.json
+CLAUDE.local.md
+
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors and IDEs
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*~
+
+# Dependencies and build output, in case a tool is added later
+node_modules/
+dist/
+.cache/
