@@ -3,6 +3,50 @@
 (function () {
   'use strict';
 
+  /* Loading screen */
+  var loader = document.getElementById('loader');
+  if (loader) {
+    var bar = document.getElementById('loaderBar');
+    var label = document.getElementById('loaderLabel');
+    var progress = 0;
+    var MIN_TIME = 1800;
+    var startTime = Date.now();
+
+    function setProgress(p) {
+      p = Math.min(p, 100);
+      if (p <= progress) return;
+      progress = p;
+      if (bar) bar.style.width = progress + '%';
+    }
+
+    /* Animate the bar in stages to feel organic */
+    setProgress(15);
+    setTimeout(function () { setProgress(40); }, 300);
+    setTimeout(function () { setProgress(65); }, 700);
+    setTimeout(function () { setProgress(85); }, 1100);
+
+    function dismiss() {
+      setProgress(100);
+      var elapsed = Date.now() - startTime;
+      var remaining = Math.max(0, MIN_TIME - elapsed);
+      setTimeout(function () {
+        loader.classList.add('done');
+        document.documentElement.classList.remove('loading');
+        /* Remove from DOM after transition ends */
+        loader.addEventListener('transitionend', function () {
+          loader.remove();
+        });
+      }, remaining + 100);
+    }
+
+    /* Dismiss when the page is fully loaded */
+    if (document.readyState === 'complete') {
+      dismiss();
+    } else {
+      window.addEventListener('load', dismiss);
+    }
+  }
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
   var $ = function (s, c) { return (c || document).querySelector(s); };

@@ -24,7 +24,7 @@
     content="Sreehari S, portfolio issue 01, beside a black and white portrait on an ultramarine block.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://urbanxtreme.github.io/final_portfolio/assets/og-image.png">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js','loading');</script>
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Sreehari S","jobTitle":"B.Tech student in Computer Science and Engineering, specializing in AI and ML","sameAs":["https://github.com/urbanxtreme","https://linkedin.com/in/sreehari-s1911"],"knowsAbout":["Artificial intelligence","Machine learning","Frontend development"]}
@@ -45,6 +45,19 @@
 </head>
 
 <body>
+  <!-- Loading screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <p class="loader-name">
+        <span class="loader-ch" style="--d:0">S</span><span class="loader-ch" style="--d:1">r</span><span class="loader-ch" style="--d:2">e</span><span class="loader-ch" style="--d:3">e</span><span class="loader-ch" style="--d:4">h</span><span class="loader-ch" style="--d:5">a</span><span class="loader-ch" style="--d:6">r</span><span class="loader-ch" style="--d:7">i</span><span class="loader-ch loader-gap" style="--d:8"></span><span class="loader-ch" style="--d:9">S</span>
+      </p>
+      <div class="loader-track">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <p class="loader-label mono" id="loaderLabel">Loading</p>
+    </div>
+  </div>
+
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- Arrow icon from Phosphor Icons (MIT license) -->
